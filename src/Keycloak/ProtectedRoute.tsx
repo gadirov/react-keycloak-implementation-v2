@@ -2,16 +2,13 @@ import React from "react";
 import { hasPermission } from "./roles";
 
 interface IProps {
-  showNotAllowed: boolean;
   children: React.ReactNode;
-  roles: string | string[];
+  roles: string | string[] | any;
+  key?: number;
 }
-const ProtectedRoutes = ({ children, roles, showNotAllowed }: IProps) => {
-  return hasPermission(roles) ? (
-    <>{children}</>
-  ) : showNotAllowed ? (
-    <h1>403</h1>
-  ) : null;
+
+const ProtectedRoutes = ({ roles, children }: IProps) => {
+  return hasPermission(roles) ? <>{children}</> : null;
 };
 
 export default ProtectedRoutes;

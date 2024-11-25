@@ -33,16 +33,16 @@ const axiosInstance = axios.create({
   baseURL: `/`,
 });
 
+export const get = <T>(url: string, config?: AxiosRequestConfig) =>
+  axiosInstance.get(url, config).then((res) => res.data as T);
+
 export const post = <T>(url: string, data: T, config?: AxiosRequestConfig) =>
   axiosInstance.post(url, data, config).then((res) => res.data as T);
 
 export const put = <T>(url: string, data: T, config?: AxiosRequestConfig) =>
   axiosInstance.put(url, data, config).then((res) => res.data);
 
-export const get = <T>(url: string, config?: AxiosRequestConfig) =>
-  axiosInstance.get(url, config).then((res) => res.data as T);
-
-export const remove = (url: string) =>
+export const deleteRequest = (url: string) =>
   axiosInstance.delete(url).then((res) => res.data);
 
 axiosInstance.interceptors.request.use(

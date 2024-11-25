@@ -17,12 +17,10 @@ root.render(
   <ReactKeycloakProvider
     authClient={keycloak}
     initOptions={keycloakProviderConfig}
-    LoadingComponent={<div>Loading...</div>}
+    LoadingComponent={<h1>Loading...</h1>}
     onEvent={eventLogger}
     onTokens={tokenLogger}
   >
     <App />
   </ReactKeycloakProvider>
 );
-
-// check-sso, eventLogger, tokenLogger, ProtectedRoutes, refreshToken,

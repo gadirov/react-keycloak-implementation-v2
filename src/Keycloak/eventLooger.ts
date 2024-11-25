@@ -1,4 +1,10 @@
-import keycloak, { EVENTS } from "./keycloak";
+import keycloak from "./keycloak";
+
+export enum EVENTS {
+  AUTH_SUCCESS = "onAuthSuccess",
+  INIT_ERROR = "onInitError",
+  REFRESH_ERROR = "onAuthRefreshError",
+}
 
 type TAuthError = {
   error: string;
@@ -15,6 +21,7 @@ export const eventLogger = (
       break;
     case EVENTS.INIT_ERROR:
       console.log("Init Error action will be executed");
+      //TO DO: create unautorized modal
       break;
     case EVENTS.REFRESH_ERROR:
       keycloak.logout();

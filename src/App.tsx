@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
-import Layout from "./Layout";
-import AdmissionPlan from "./AdmissionPlan";
+import Layout from "./Components/Layout";
+import AdmissionPlan from "./Components/AdmissionPlan";
+import UnAutorized from "./Components/UnAutorized";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
             <Route path="ttq" element={<h1>Tedrisin Teshkili qaydalari</h1>} />
             <Route path="journals" element={<h1>Journals</h1>} />
             <Route path="subjects" element={<h1>Subjects</h1>} />
-            <Route path="/403" element={<h1>UnAutorized</h1>} />
+            <Route path="/403" element={<UnAutorized />} />
           </Route>
         </Routes>
       </BrowserRouter>
